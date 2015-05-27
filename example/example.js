@@ -20438,7 +20438,7 @@ var ExampleApp =
 	    if (this.state.focus) {
 	      return React.createElement(
 	        Popover,
-	        null,
+	        { tetherOptions: this.props.tetherOptions },
 	        React.createElement(Calendar, {
 	          weekdays: this.props.weekdays,
 	          locale: this.props.locale,
@@ -32106,10 +32106,10 @@ var ExampleApp =
 	    React.render(this._popoverComponent(), this._popoverElement);
 
 	    if (this._tether != null) {
-	      this._tether.setOptions(this._tetherOptions());
+	      this._tether.setOptions(this.props.tetherOptions || this._tetherOptions());
 	    } else if (window && document) {
 	      var Tether = __webpack_require__(249);
-	      this._tether = new Tether(this._tetherOptions());
+	      this._tether = new Tether(this.props.tetherOptions || this._tetherOptions());
 	    }
 	  },
 

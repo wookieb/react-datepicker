@@ -45,12 +45,13 @@ var Popover = React.createClass({
   _renderPopover: function() {
     React.render(this._popoverComponent(), this._popoverElement);
 
+
     if (this._tether != null) {
-      this._tether.setOptions(this._tetherOptions());
+      this._tether.setOptions(this.props.tetherOptions || this._tetherOptions());
     }
     else if (window && document) {
       var Tether = require('../node_modules/tether/tether.js');
-      this._tether = new Tether(this._tetherOptions());
+      this._tether = new Tether(this.props.tetherOptions || this._tetherOptions());
     }
   },
 

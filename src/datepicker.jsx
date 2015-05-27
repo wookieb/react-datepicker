@@ -49,7 +49,7 @@ var DatePicker = React.createClass({
 
   clearSelected: function() {
     this.props.onChange(null);
-  },  
+  },
 
   onInputClick: function() {
     this.setState({
@@ -60,7 +60,7 @@ var DatePicker = React.createClass({
   calendar: function() {
     if (this.state.focus) {
       return (
-        <Popover>
+        <Popover tetherOptions={this.props.tetherOptions}>
           <Calendar
             weekdays={this.props.weekdays}
             locale={this.props.locale}
